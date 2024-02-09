@@ -1,5 +1,6 @@
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
+import { db } from "./firebase.config";
 import CreateOffer from "./components/CreateOffer";
 import { useState } from "react";
 import OffersList from "./components/OffersList";
