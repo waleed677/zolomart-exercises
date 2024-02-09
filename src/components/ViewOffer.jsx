@@ -43,7 +43,7 @@ const ViewOffer = () => {
       <div className="mx-auto">
         <ToastContainer />
       </div>
-      {offer && offer.length > 0 ? (
+      {offer ? (
         <div className="max-w-3xl mx-auto p-4">
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Congratulation You have got an Awesome Offer.
