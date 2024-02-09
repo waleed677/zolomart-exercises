@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const CreateOffer = () => {
+const CreateOffer = ({ addOffer }) => {
   const [formData, setFormData] = useState({
     salary: "",
     equity: "",
@@ -10,12 +10,12 @@ const CreateOffer = () => {
     learningOpportunities: "",
   });
 
-  const handleChange = () => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     addOffer(formData);
     alert("Offer created successfully!");
@@ -26,6 +26,9 @@ const CreateOffer = () => {
       culture: "",
       learningOpportunities: "",
     });
+
+
+    console.log({formData})
   };
 
   return (
