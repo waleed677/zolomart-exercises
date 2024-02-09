@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { ToastContainer, toast } from "react-toastify";
 
-const ViewOffer = ({ offers }) => {
+const ViewOffer = () => {
   const { offerId } = useParams();
   const [offer, setOffer] = useState(null);
 
@@ -43,7 +43,7 @@ const ViewOffer = ({ offers }) => {
       <div className="mx-auto">
         <ToastContainer />
       </div>
-      {offer && (
+      {offer && offer.length > 0 ? (
         <div className="max-w-3xl mx-auto p-4">
           <h2 className="text-2xl font-semibold mb-4 text-center">
             Congratulation You have got an Awesome Offer.
@@ -95,6 +95,14 @@ const ViewOffer = ({ offers }) => {
               </button>
             </form>
           </div>
+        </div>
+      ) : (
+        <div className="max-w-lg mx-auto text-center p-6 bg-red-100 border border-red-400 text-red-700 rounded-md mt-10">
+          <h2 className="font-semibold text-lg mb-4">No Data Available</h2>
+          <p className="mb-4">
+            We couldn't find the details for this offer. It might have been
+            removed or the link you used is incorrect.
+          </p>
         </div>
       )}
     </>
