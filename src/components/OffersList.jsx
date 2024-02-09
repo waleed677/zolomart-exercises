@@ -1,38 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import OfferItem from "./OfferItem";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config";
 
-const OfferItem = ({ offer }) => {
-  const [showDetails, setShowDetails] = useState(false);
+const OffersList = () => {
+  const [offers, setOffers] = useState([]);
 
-  return (
-    <div className="border p-4 mb-4 rounded shadow">
-      <div className="flex justify-between items-center">
-        <h3 className="text-lg font-semibold">Offer for {offer.position || "Position"}</h3>
-        <button
-          onClick={() => setShowDetails(!showDetails)}
-          className="text-blue-500 hover:text-blue-700 text-sm"
-        >
-          {showDetails ? 'Hide Details' : 'Show Details'}
-        </button>
-      </div>
-      {showDetails && (
-        <div className="mt-4">
-          <p>Salary: {offer.salary}</p>
-          <p>Equity: {offer.equity}%</p>
-          <p>Bonus: {offer.bonus}</p>
-          <p>Culture: {offer.culture}</p>
-          <p>Learning Opportunities: {offer.learningOpportunities}</p>
-          <Link to={`/offer/${offer.id}`} className="inline-block mt-2 text-blue-500 hover:text-blue-700">Share Offer</Link>
-        </div>
-      )}
-    </div>
-  );
-};
+  useEffect(() => {
+    const fetchOffers = async () => {
+      const querySnapshot = await getDocs(collection(db, "offers"));
+      const offersArray = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setOffers(offersArray);
+    };
 
-const OffersList = ({ offers }) => {
+    fetchOffers();
+  }, []);
+
   return (
     <div className="max-w-2xl mx-auto p-4">
-      <h2 className="text-2xl underline font-semibold mb-4">Offers List</h2>
+      <h2 className="text-2xl font-semibold mb-10 text-center">Offers List</h2>
       {offers.length > 0 ? (
         offers.map((offer, index) => <OfferItem key={index} offer={offer} />)
       ) : (
