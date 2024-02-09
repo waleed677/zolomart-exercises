@@ -52,3 +52,12 @@ This was my first encounter with a unique and interactive exercise for a home as
 
 ## Screenshots + Video Link of Demo
 
+Video Link:
+```
+https://www.loom.com/share/535a98a973b849c88d139310ed21ff50
+```
+
+<img src="https://github.com/waleed677/zolomart-exercises/blob/master/public/demo/1.png" width="500"/>
+<img src="https://github.com/waleed677/zolomart-exercises/blob/master/public/demo/2.png" width="500"/>
+<img src="https://github.com/waleed677/zolomart-exercises/blob/master/public/demo/3.png" width="500"/>
+
