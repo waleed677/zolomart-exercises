@@ -24,7 +24,7 @@ const CreateOffer = () => {
     e.preventDefault();
     try {
       await addDoc(collection(db, "offers"), formData);
-      toast.success(" Offer Created Successfully!!!", {
+      toast.success("Offer Created Successfully!!!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -54,7 +54,7 @@ const CreateOffer = () => {
       });
     } catch (error) {
       console.error("Error adding document: ", error);
-      toast.error(" Offer Created Failed", {
+      toast.error("Offer Created Failed", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -79,10 +79,11 @@ const CreateOffer = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-10">
           <div>
-            <label className="block mb-2 text-gray-700">Job Position:</label>
+            <label className="block mb-2 text-gray-700" htmlFor="position">Job Position:</label>
             <input
               type="text"
               name="position"
+              id="position"
               value={formData.position}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
@@ -90,10 +91,11 @@ const CreateOffer = () => {
             />
           </div>
           <div>
-            <label className="block mb-2 text-gray-700">Salary:</label>
+            <label className="block mb-2 text-gray-700" htmlFor="salary">Salary:</label>
             <input
               type="text"
               name="salary"
+              id="salary"
               value={formData.salary}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
@@ -101,10 +103,11 @@ const CreateOffer = () => {
             />
           </div>
           <div>
-            <label className="block mb-2 text-gray-700">Equity (%):</label>
+            <label className="block mb-2 text-gray-700" htmlFor="equity">Equity</label>
             <input
               type="text"
               name="equity"
+              id="equity"
               value={formData.equity}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
@@ -112,10 +115,11 @@ const CreateOffer = () => {
             />
           </div>
           <div>
-            <label className="block mb-2 text-gray-700">Bonus:</label>
+            <label className="block mb-2 text-gray-700" htmlFor="bonus">Bonus:</label>
             <input
               type="text"
               name="bonus"
+              id="bonus"
               value={formData.bonus}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
@@ -123,18 +127,19 @@ const CreateOffer = () => {
             />
           </div>
           <div>
-            <label className="block mb-2 text-gray-700">Culture:</label>
+            <label className="block mb-2 text-gray-700" htmlFor="culture">Culture:</label>
             <textarea
               name="culture"
               value={formData.culture}
               onChange={handleChange}
+              id="culture"
               className="textarea border rounded p-2 w-full"
               rows="2"
               required
             ></textarea>
           </div>
           <div>
-            <label className="block mb-2 text-gray-700">
+            <label className="block mb-2 text-gray-700" htmlFor="opportunities">
               Learning Opportunities:
             </label>
             <textarea
@@ -143,6 +148,7 @@ const CreateOffer = () => {
               onChange={handleChange}
               className="textarea border rounded p-2 w-full"
               rows="2"
+              id="opportunities"
               required
             ></textarea>
           </div>
