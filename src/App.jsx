@@ -4,14 +4,9 @@ import { db } from "./firebase.config";
 import CreateOffer from "./components/CreateOffer";
 import { useState } from "react";
 import OffersList from "./components/OffersList";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  const [offers, setOffers] = useState([]);
-
-  const addOffer = (offer) => {
-    const newOffer = { ...offer, id: offers.length + 1, questions: [] };
-    setOffers([...offers, newOffer]);
-  };
 
   return (
     <>
@@ -36,8 +31,8 @@ function App() {
             </div>
           </nav>
           <Routes>
-            <Route path="/" element={<CreateOffer addOffer={addOffer} />} />
-            <Route path="/offers" element={<OffersList offers={offers} />} />
+            <Route path="/" element={<CreateOffer  />} />
+            <Route path="/offers" element={<OffersList />} />
           </Routes>
         </div>
       </Router>
