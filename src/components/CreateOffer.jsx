@@ -79,13 +79,14 @@ const CreateOffer = () => {
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-10">
           <div>
-            <label className="block mb-2 text-gray-700">Position:</label>
+            <label className="block mb-2 text-gray-700">Job Position:</label>
             <input
               type="text"
               name="position"
               value={formData.position}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
+              required
             />
           </div>
           <div>
@@ -96,6 +97,7 @@ const CreateOffer = () => {
               value={formData.salary}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
+              required
             />
           </div>
           <div>
@@ -106,6 +108,7 @@ const CreateOffer = () => {
               value={formData.equity}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
+              required
             />
           </div>
           <div>
@@ -116,6 +119,7 @@ const CreateOffer = () => {
               value={formData.bonus}
               onChange={handleChange}
               className="input border rounded p-2 w-full"
+              required
             />
           </div>
           <div>
@@ -126,6 +130,7 @@ const CreateOffer = () => {
               onChange={handleChange}
               className="textarea border rounded p-2 w-full"
               rows="2"
+              required
             ></textarea>
           </div>
           <div>
@@ -138,6 +143,7 @@ const CreateOffer = () => {
               onChange={handleChange}
               className="textarea border rounded p-2 w-full"
               rows="2"
+              required
             ></textarea>
           </div>
           <button
