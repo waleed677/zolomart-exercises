@@ -1,7 +1,5 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore'; // If you're using Firestore
-import 'firebase/auth'; // If you're using Firebase Authentication
-
+import { initializeApp } from 'firebase/app';
+import { getFirestore} from 'firebase/firestore/lite';
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBx_1PCPxRllDkfJ8c8MA54EqLWB04ChE4",
@@ -14,10 +12,7 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
-// Initialize services
-const db = firebase.firestore();
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app)
 
-// Export services for use in your components
-export { db};
