@@ -1,12 +1,11 @@
 import './App.css'
+import CreateOffer from './components/CreateOffer'
 
 function App() {
 
   return (
     <>
-       <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <CreateOffer/>
     </>
   )
 }
