@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const CreateOffer = ({ addOffer }) => {
   const [formData, setFormData] = useState({
+    position: '',
     salary: "",
     equity: "",
     bonus: "",
@@ -20,22 +21,24 @@ const CreateOffer = ({ addOffer }) => {
     addOffer(formData);
     alert("Offer created successfully!");
     setFormData({
+      position: "",
       salary: "",
       equity: "",
       bonus: "",
       culture: "",
       learningOpportunities: "",
     });
-
-
-    console.log({formData})
   };
 
   return (
     <div className="max-w-md mx-auto p-4">
-    <h2 className="text-4xl font-semibold mb-4">Hiring Manager</h2>
+    <h2 className="text-4xl font-semibold mb-4 ">Hiring Manager</h2>
     <h2 className="text-xl font-semibold mb-4">Create New Offer</h2>
     <form onSubmit={handleSubmit} className="space-y-4">
+    <div>
+        <label className="block mb-2 text-gray-700">Position:</label>
+        <input type="text" name="position" value={formData.position} onChange={handleChange} className="input border rounded p-2 w-full" />
+      </div>
       <div>
         <label className="block mb-2 text-gray-700">Salary:</label>
         <input type="text" name="salary" value={formData.salary} onChange={handleChange} className="input border rounded p-2 w-full" />
